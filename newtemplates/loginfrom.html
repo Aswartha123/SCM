@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <style>
+          body{
+          background-image: url("{{url_for('static',path='2.jpeg')}}");
+          background-size:cover ;
+        }
+        </style>
+            
+      </head>
+      <body >
+        <div style="width: 30%;" class="mt-5  container-sm bg-transparent border border-info shadow-lg p-4 mb-4 bg-white h-auto bg-warning  rounded-4 ">
+            <center><h2>Login</h2></center>
+       <form action="/loginto" method="post" >
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" placeholder="Enter Email" class="form-control " name="email" id="email" aria-describedby="emailHelpId"  required autocomplete="off">
+        </div><br>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" placeholder="Enter Password" class="form-control " name="password" id="password" required autocomplete="off">
+        </div><br>
+        <div>
+            <center><button type="submit"   class="btn btn-primary">Login</button></center>
+        </div><br>
+        <a href="{{url_for('forgot')}}" style="color: black;">Forgot password?</a> 
+        <div>
+            <div class="alert alert-primary" role="alert"><strong>Create a new account</strong> <a href="{{url_for('signup')}}" class="alert-link">Click Here</a></div>
+        </div>
+       </form>
+    </div>
+      </body>
+
+

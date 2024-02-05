@@ -1,0 +1,80 @@
+<html >
+    <head>
+        <title>Signup Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      </head>
+      <style>
+        body{
+          background-image: url("{{url_for('static',path='2.jpeg')}}");
+          background-size:cover ;
+          user-select: none;
+        }
+        #enter{
+          user-select: none;
+        }
+      </style>
+      <body>
+        <div style="width: 30%;" class="mt-5  container-sm bg-transparent border border-info shadow-lg p-4 mb-4 bg-white h-auto bg-warning  rounded-4 "  >
+        
+            <center><h2>Signup</h2></center>
+       <form action="/signup" method="post" class="was-validated" >
+        <div class="mb-3 ">
+          <label for="" class="form-label">User Name</label>
+          <input type="text" placeholder="Enter the username" class="form-control bg-info text-white" name="username" id="username" aria-describedby="helpId" required autocomplete="off">
+        </div><br>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" placeholder="Enter email" class="form-control bg-info text-white" name="email" id="email" aria-describedby="emailHelpId"  required autocomplete="off">
+        </div><br>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" placeholder="Enter password" class="form-control bg-info text-white" name="password" id="password"   required autocomplete="off">
+        </div><br>
+        <div class="mb-3">
+          <label for="" class="form-label">Confirm Password</label>
+          <input type="password" placeholder="Re-enter the password" class="form-control bg-info text-white" name="con_password" id="con_password" oninput="check()"  required autocomplete="off">
+          <p id="error" class="alert alert-danger" style="display: none;">password and confirm password must be same</p>
+        </div><br>
+        <div class="mb-3">
+          <label for="captch" class="form-label">Enter the captcha</label>
+          <input type="text" placeholder="Re-enter the captcha below" class="form-control bg-info text-white" name="captch" id="captch" required autocomplete="off">
+          <p id="worng"></p>
+        </div>
+        <h3 id="enter">{{captch}}</h3>
+        <div>
+            <center><button type="submit" class="btn btn-primary">Signup</button></center>
+        </div><br>
+        <div>
+            <div class="alert alert-primary" role="alert"><strong>I already have a account</strong> <a href="{{url_for('login')}}" class="alert-link">Click Here</a></div>
+        </div>
+       </form>
+    </div>
+    <script>
+        function check(){
+          var passward = document.getElementById("password").value;
+          var con_password = document.getElementById("con_password").value;
+          if(passward!=con_password){
+            document.getElementById("error").style.display="block";
+            // document.getElementById("error").innerHTML="password and confirm password must be same";
+          }
+          else{
+            document.getElementById("error").style.display="none";
+            // document.getElementById("error").innerHTML="";
+          }
+        }
+        function checkcap(){
+          var captcha=document.getElementById("captch").value;
+          var entercaptcha=document.getElementById("enter").textContent;
+          if(captcha!=entercaptcha){
+            document.getElementById("worng").innerHTML="reenter the captcha";
+          }
+          else{
+            document.getElementById("worng").innerHTML="";
+          }    
+            
+            }
+    </script>
+      </body>
+</html>
+

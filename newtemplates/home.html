@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        home page
+     </title>
+     <script >
+        let a=1;
+        function settoken(tkn){
+            localStorage.setItem("token",tkn);
+        }
+        function gettoken(){
+            var tokn=localStorage.getItem("token");
+            return tokn;
+        }
+        function sendtoken(){
+            var token='{{access_token}}';
+            if(token=="None"){
+
+            }
+            else{
+            let forma=document.getElementById('myform');
+            let invar=document.getElementById('tokens');
+            settoken(token);
+            let gettedtkn=gettoken();
+            invar.value=gettedtkn;
+            forma.submit();
+            }
+        }
+        
+
+    </script>
+    <style>
+        #myform{
+            display:none;
+        }
+    </style>
+    </head>
+    <body onload="sendtoken()">
+        <center><h1>Welcome To Our Website</h1></center>
+
+        <form action="/logout" method="post">
+            <button type="submit" onclick="localStorage.clear();sessionStorage.clear()">logout</button>  
+        </form>
+        <form action="/get_data" id="myform" method="post">
+            <input type="text" id="tokens" name="tokens" >
+            <input type="submit" value="submit">
+        </form>
+        
+        <h2 id="name">{{data['username']}}</h2>
+        <h5 id="email">{{data["email"]}}</h5> 
+        <!-- <script>
+        var email = document.getElementById("email").textContent;
+        var user = document.getElementById("name").textContent;
+        localStorage.setItem("user name",user);
+        
+        localStorage.setItem("email",email);
+        sessionStorage.setItem("user name",user);
+        </script> -->
+    </body>
+</html>

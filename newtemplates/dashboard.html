@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+        <style>
+        body {
+            background-color: #f8f9fa; 
+            color: #495057; 
+        }
+
+        .container-fluid {
+            background-color: #343a40;
+            color: #ffffff; 
+            padding: 10px;
+            text-align: center;
+        }
+
+        #side_menu_bar {
+            width: 100%;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #007bff; 
+            color: #ffffff; 
+        }
+
+        .nav-pills .nav-link {
+            color: #6c757d; 
+        }
+        .nav {
+            background-color: #001F3F; 
+            width:8%;
+            height: 100%;
+            top:10.4%;
+         } 
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        #main{
+            margin-top:5%;
+            width:85%;
+        }
+        #nav_bar ul li a img{
+            width: 50px;
+            height: 50px;
+        }
+
+        #myform{
+                        display:none;
+                    }
+        .tab-content {
+            margin-left: 20%;
+            padding: 20px;
+        }
+
+        .tab-pane {
+            background-color: #ffffff; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        h1{
+            color: #ffffff;
+        }
+        h2 {
+            color:black; 
+        }
+
+        p {
+            color: #495057; 
+            font-size: x-large;
+        }
+        #logout{
+           width: 50px;
+           height: 50px;
+           /* position:relative; */
+           /* top:25px; */
+           /* left:35px; */
+           /* background-color:#001F3F; */
+        }
+        #logout img{
+            width: 50px;
+            height: 50px;
+           
+        }
+
+        #logout:hover{
+          background-color: none;
+        }
+        .bi-list{
+            display: none;
+        }
+        #close{
+            display: none;
+        }
+        #name,#email{
+            color:darkcyan;
+        } 
+        #profile_img{
+            display: none;
+            user-select: none;
+        }
+        .table-responsive{
+            overflow-x: scroll;
+        }
+        #dash:hover::before{
+         background-color: black;
+         color:whitesmoke;
+         border-top-left-radius:20px;
+         border-top-right-radius:20px;
+         border-bottom-right-radius: 20px;
+         font-size: 23px;
+         height:40px;
+         padding-left: 10px;
+         width:130px; 
+         content: "dashboard";
+         position: absolute;
+         top:2%;
+         left:103%;
+        }
+        #account:hover::before{
+         background-color: black;
+         color:whitesmoke;
+         border-top-left-radius:20px;
+         border-top-right-radius:20px;
+         border-bottom-right-radius: 20px;
+         font-size: 23px;
+         height:40px;
+         padding-left: 10px;
+         width:110px; 
+         content: "Account";
+         position: absolute;
+         top:12%;
+         left:103%;
+        }        
+        #create:hover::before{
+         background-color: black;
+         color:whitesmoke;
+         border-top-left-radius:20px;
+         border-top-right-radius:20px;
+         border-bottom-right-radius: 20px;
+         font-size: 23px;
+         height:40px;
+         padding-left: 10px;
+         width:130px; 
+         content: "create new";
+         position: absolute;
+         top:22%;
+         left:103%;
+        }
+        #ship:hover::before{
+         background-color: black;
+         color:whitesmoke;
+         border-top-left-radius:20px;
+         border-top-right-radius:20px;
+         border-bottom-right-radius: 20px;
+         font-size:20px;
+         height:40px;
+         padding-left: 10px;
+         width:130px; 
+         content: "My shipment";
+         position: absolute;
+         top:35%;
+         left:103%;
+        }        
+        #data:hover::before{
+         background-color: black;
+         color:whitesmoke;
+         border-top-left-radius:20px;
+         border-top-right-radius:20px;
+         border-bottom-right-radius: 20px;
+         font-size: 20px;
+         height:40px;
+         padding-left: 10px;
+         width:130px; 
+         content: "Data stream";
+         position: absolute;
+         top:45%;
+         left:103%;
+        }
+        .custom-form-control{
+           box-shadow: #6c757d;
+        }
+        #data{
+               display: none;
+        } 
+        tbody{
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }      
+         #modal{
+            border: 0px solid black;
+            border-radius:5px;
+            width:400px ;
+            height:350px ;
+            translate: all 2s ease;
+            
+        }
+
+      @media screen and (max-width: 414px) {
+        body {
+            font-size: 14px; 
+        }
+
+        #nav_bar {
+         display: none;
+        }
+        .nav{
+            width: 100px;
+            top: 7.25%;
+        }
+
+        .tab-content {
+            margin-left: 0;
+            padding: 5px;
+        }
+
+        #logout {
+            top: 5px;
+        }
+        .bi-list{
+            display: block;
+        }
+        .container-fluid {
+            display:flex;
+            justify-content:space-between;
+        } 
+        #main{
+            width:99%;
+            margin-top:15%;
+        }
+       
+    }
+        </style>
+  
+          <script>
+            function menu() {
+                document.getElementById("nav_bar").style.display = "block";
+                document.getElementById("menu").style.display = "none";
+                document.getElementById("close").style.display = "block";
+            }
+    
+            function closed() {
+                document.getElementById("nav_bar").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("close").style.display = "none";
+            }
+
+            function present_date(){           
+             var date = new Date();
+            var year= date.getFullYear()+'/'+date.getMonth()+'/'+date.getDay();
+            console.log(year);
+          }
+
+            function user(){
+                var token='{{access_token}}';
+                localStorage.setItem("user_token",token);
+                var user_token=localStorage.getItem("user_token");
+                data={ "token": user_token}
+                fetch('/user_data', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                      })
+                    .then(response => response.json())
+                    .then(data => {
+                        sessionStorage.setItem("username",data.username);
+                         sessionStorage.setItem("email",data.email);
+                         var user_email = sessionStorage.getItem("email");
+                         if(data.role=="admin"){
+                            document.getElementById("data").style.display="block"
+                           }
+                        user_data(data)
+                        my_shipments(user_email)
+                        device_data(user_email)
+                     })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                     });
+                
+                 }
+
+
+            function my_shipments(user_email){
+                data={ "email": user_email}
+                fetch('/my_shipments', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                      })
+                    .then(response => response.json())
+                    .then(shipments => {
+                          dispaly_ship(shipments);
+                     })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                     });
+
+            }
+            function dispaly_ship(shipments){
+                 for(let i=0;i<shipments.length;i++){
+                    document.getElementById("my_shipments_table").innerHTML+=`<tr class="table">
+                                                                              <td>`+shipments[i]['shipment_number']+`</td>
+                                                                              <td>`+shipments[i]['route_details']+`</td>
+                                                                              <td>`+shipments[i]['device']+`</td>
+                                                                              <td>`+shipments[i]['ndc_number']+`</td>
+                                                                              <td>`+shipments[i]['serial_number']+`</td>
+                                                                              <td>`+shipments[i]['po_number']+`</td>
+                                                                              <td>`+shipments[i]['container_number']+`</td>
+                                                                              <td>`+shipments[i]['goods_type']+`</td>
+                                                                              <td>`+shipments[i]['delivery_date']+`</td>
+                                                                              <td>`+shipments[i]['delivery_number']+`</td>
+                                                                              <td>`+shipments[i]['batch_id']+`</td>
+                                                                              <td>`+shipments[i]['description']+`</td>
+                                                                               </tr>`;
+                 }
+            }
+
+
+            function user_data(data){
+                 document.getElementById("email").innerText+=data.email;
+                 document.getElementById("ship_email").value=data.email;
+                 document.getElementById("user_email").value=data.email;
+                 document.getElementById("name").innerText+=data.username;
+                 document.getElementById("user_name").value=data.username;
+                 document.getElementById("img").src=data.profile;
+                 document.getElementById("imgs").src=data.profile;
+                 document.getElementById("p_img").src=data.profile;
+
+            }
+
+
+            function device_data(user_email){
+                data={ "email": user_email}
+                fetch('/device_data', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                      })
+                    .then(response => response.json())
+                    .then(data => {
+                          dispaly_device(data);
+                     })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                     });
+
+            }
+
+
+            function dispaly_device(data){
+                j=1
+                for(let i=0;i<data.length;i++){
+                    document.getElementById("deviceTableBody").innerHTML+=`<tr class="table">
+                                                            <td>`+j+`</td>
+                                                            <td>`+data[i]['Battery_Level']+`</td>
+                                                            <td>`+data[i]['Device_ID']+`</td>
+                                                            <td>`+data[i]['First_Sensor_temperature']+`</td>
+                                                            <td>`+data[i]['Route_From']+`</td>
+                                                            <td>`+data[i]['Route_To']+`</td>
+                                                            </tr>`;
+                    j++
+                 }
+            }
+
+            function cls(){
+                        var form=document.getElementById("create_new");
+                        form.reset();
+                    }
+        </script>
+    </head>
+    <body onload="user()">
+
+    <div class="container-fluid w-100  position-fixed ">
+      <button class="bi bi-list btn btn-secondary" onclick="menu()" id="menu"></button>
+      <button class="btn-close" id="close" onclick="closed()"></button>
+      <center><h1>SCM-Xpert</h1></center> 
+    </div>
+
+    <div id="side_menu_bar">
+        <div id="nav_bar">
+        <ul class="nav nav-pills   d-flex flex-column fs-2 lh-6 position-fixed   p-1 " >
+            <li class="nav-item ">
+            <a class="nav-link active " data-bs-toggle="pill" href="#Dashboard" id="dash"><img src="{{url_for('static',path='home.png')}}"></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " data-bs-toggle="pill" href="#My_Account" id="account"> <img id="p_img" class="rounded-5" ></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="pill" href="#Create_shipment" id="create"><img src="{{url_for('static',path='add.png')}}"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#My_shipment" id="ship"><img src="{{url_for('static',path='truck.png')}}" onclick="shipments()"></a>
+            </li>
+            <li class="nav-item-danger">
+                <a class="nav-link" data-bs-toggle="pill" href="#Data_stream" id="data"><img src="{{url_for('static',path='folder.png')}}"></a>
+            </li>
+            <li>
+                
+                    <button id="logout" class="btn" onclick="localStorage.clear();sessionStorage.clear();location.replace('/')"><img src="{{url_for('static',path='log-out.png')}}"></button>  
+               
+            </li>
+        </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content  float-end " id="main">
+
+            <div class="tab-pane container active " id="Dashboard">
+                <center><h2>Supply Chain Management</h2></center> <br>
+              <img src="{{url_for('static',path='scm.jpg')}}" width="100%"><br><br>
+            <div>
+                <p>SCM stands for Supply Chain Management, which involves overseeing the entire process of getting products or services from the manufacturer to the end consumer. It includes activities like procurement, production, transportation, and distribution, with the goal of optimizing efficiency and reducing costs in the supply chain.</p>
+            </div>
+            </div>
+
+            <div class="tab-pane container fade" id="My_Account" >
+                <center><h2>My Account</h2></center> <br>
+                <div style="display: flex;">
+                    <div>
+                        <center><h3>Profile</h3></center>
+                        <img id="img" alt="{{url_for('static',path='th.jpg')}}" width="200px" height="200px" style="border-radius: 50%;"><br>
+                    
+                        <center><button onclick="modal.showModal()" class="btn btn-dark"><i class="bi bi-pencil-square"></i></button></center>
+
+                        <dialog id="modal">
+                            <button onclick="modal.close()" class="btn-close float-end"></button>
+                            <center><img id="imgs" alt="{{url_for('static',path='th.jpg')}}" width="200px" height="200px" style="border-radius: 50%;"></center><br>
+                            <form action="/image" method="post" enctype="multipart/form-data" >
+                                <label for="username">Username:</label>
+                                <input type="text" name="username" id="user_name"><br>
+                                <label for="images">Image:</label>
+                                <input type="file"  name="images" id="images"><br>
+                                <input type="email" name="email" id="user_email" style="display: none;">
+                                <center><input type="submit" class="btn btn-outline-success" value="update"></center>
+                            </form>
+
+                        </dialog>
+                    </div>
+                    <div style="margin-left:30px ;">
+                        <h4>Username:</h4><h3 id="name"></h3><br><br>
+                        <h4>Email:</h4><h5 id="email"></h5> 
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane container fade mt-5  bg-transparent border  p-4  bg-white h-auto rounded-3 " id="Create_shipment">
+             <center><h2>Create New Shipment</h2></center>
+               <form action="/create_shipment" method="post" id="create_new">
+                <div style="display: flex; justify-content: space-around;">
+                    <div style="width: 48%;">
+                        <div class="mb-3">
+                        <label for="shipment_number" class="form-label">Shipment Number</label>
+                        <input type="text" placeholder="" class="form-control" name="shipment_number" id="shipment_number"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="route_details" class="form-label">Route Details</label>
+                            <select class="form-select" id="route_details"   name="route_details">
+                                <option  disabled selected>Select an route</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2" >Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="device" class="form-label">Device</label>
+                            <select class="form-select" id="device" name="device">
+                                <option disabled selected>Select a device</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="po_number" class="form-label">PO Number</label>
+                            <input type="text" placeholder="" class="form-control " name="po_number" id="po_number"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">NDC Number</label>
+                            <input type="" placeholder="" class="form-control " name="ndc_number" id="ndc_number"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="serial_number" class="form-label">Serial number of goods</label>
+                            <input type="" placeholder="" class="form-control " name="serial_number" id="serial_number"   required autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-primary ">Create Shipment</button> 
+                    </div>
+                    <div style="width: 48%;">
+                        <div class="mb-3">
+                            <label for="container_number" class="form-label">Container Number</label>
+                            <input type="" placeholder="" class="form-control " name="container_number" id="container_number"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="goods_type" class="form-label">Goods Type</label>
+                            <select class="form-select" id="goods_type" name="goods_type" >
+                                <option disabled selected>Select goods type</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="delivery_date" class="form-label">Expected Delivery Date</label>
+                            <input type="date" placeholder="" class="form-control " name="delivery_date" id="delivery_date"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="delivery_number" class="form-label">Delivery Number</label>
+                            <input type="" placeholder="" class="form-control " name="delivery_number" id="delivery_number"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="batch_id" class="form-label">Batch Id</label>
+                            <input type="" placeholder="" class="form-control " name="batch_id" id="batch_id"   required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Shipment Description</label>
+                            <input type="email" name="email" id="ship_email" style="display: none;">
+                            <textarea name="description" class="form-control" placeholder=""  id="description" cols="" rows="1"></textarea>
+                        </div>
+                        <button class="btn btn-danger" onclick="cls()">Clear data</button>
+                    </div>
+                   
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane container fade" id="My_shipment">
+                <center><h2>My Shipment</h2></center>
+            <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered table-primary align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Shipment No</th>
+                        <th>Route</th>
+                        <th>Device</th>
+                        <th>NDC No</th>
+                        <th>PO No</th>
+                        <th>Seriel No</th>
+                        <th>Container No</th>
+                        <th>Type</th>
+                        <th>Delivery date</th>
+                        <th>Delivery No</th>
+                        <th>Batch Id</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider" id="my_shipments_table">
+   
+                </tbody>
+
+            </table>
+        </div>
+            </div>
+
+            <div class="tab-pane container fade" id="Data_stream">
+                <center><h2>Device Data</h2></center>
+                <div class="table-responsive">
+                    <input type="text" class="float-end" id="searchInput" placeholder="Search device ID..."><br><br>
+                    <table class="table table-striped table-hover table-bordered table-primary align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Battery Level</th>
+                                <th>Device Id</th>
+                                <th>Temperature</th>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="deviceTableBody">
+              
+                        </tbody>
+        
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+     
+    <script>
+        document.getElementById('searchInput').oninput = function() {
+            const searchText = this.value;
+            const rows = document.querySelectorAll('#deviceTableBody tr');
+            // .toLowerCase()
+            rows.forEach(row => {
+                const deviceId = row.getElementsByTagName('td')[2].textContent;
+                if (deviceId.includes(searchText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        };
+    </script>
+
+    </body>
+</html>
